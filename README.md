@@ -1,21 +1,23 @@
 # Data Analysis Project - Coinmarketcap
 
-This repository is for the first internship project of Quera Data Science Bootcamp
-Quera Data Science Bootcamp has been held for 12 weeks from August to November 2023. in which we learned and practiced both technical and soft skills in order to become ready to work as data Scientists in the market and industry.
+This repository is for the first internship project of [Quera Data Science Bootcamp](https://quera.org/college/bootcamp/data-science)
+
+[Quera](https://quera.org/) Data Science Bootcamp has been held for 12 weeks from August to November 2023. in which we learned and practiced both technical and soft skills in order to become ready to work as data Scientists in the market and industry.
 
 This repository is for the first teamwork internship project of this Bootcamp, which is about data analysis in the field of Cryptocurrency Market and includes extracting data from coinmarketcap.com, storing data in a database and performing statistical analysis, and creating visualization with Power BI Dashboard.
 
 The following members are present in this team, arranged in alphabetical order:
+- (Group 11)
+* [**Mr. Abednezhad, Saleh (Team Head)**](https://github.com/mr-robot77)
+* [Mr. Ghiyasi, Mahdi](https://github.com/mahdi-ghiyasi)
+* [Mr. Moosaei, Amirali](https://github.com/mo0o0o0os)
+* [Mr. Soufi, Mohamadreza](https://github.com/SufiM)
 
-Mr. Abednezhad, Saleh (Team Head)
-Mr. Ghiyasi, Mahdi
-Mr. Moosaei, Amirali
-Mr. Soufi, Mohamadreza
-This team has completed the project under the mentoring of Mr. Jour Ebrahimi, Hossein.
+This team has completed the project under the mentoring of **Mr. Jour Ebrahimian, Hossein**.
 
 ##  Introduction
 
-Welcome to the documentation for our project that involves scraping data from Coin MarketCap, importing it into a database using SQLAlchemy, performing statistical analysis on the collected data, and finally presenting the results in Power BI. This project aims to provide valuable insights into cryptocurrency market data, enabling us to make informed decisions and gain a deeper understanding of market trends.
+Welcome to the documentation for our project that involves scraping data from [Coinmarketcap](https://coinmarketcap.com/), importing it into a database using SQLAlchemy, performing statistical analysis on the collected data, and finally presenting the results in Power BI. This project aims to provide valuable insights into cryptocurrency market data, enabling us to make informed decisions and gain a deeper understanding of market trends.
 
 ## Objectives
 
@@ -31,7 +33,8 @@ The primary objective of this project is to create a streamlined data pipeline f
 
 Below is a file structure of this project:
 
-Root.
+```
+    .
     ├── Analysis    # Analysing data with statistics
     |    ├── est_tests.ipynb
     |    ├── read_data.ipynb
@@ -78,6 +81,7 @@ Root.
     |
     ├── images
     └── README.md # Explanation of project structure, tools used, and instructions for executing each part of the project.
+```
 
 ### Part 1: Data Scraping
 
