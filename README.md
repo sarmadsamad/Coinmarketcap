@@ -1,3 +1,18 @@
+# Data Analysis Project - Coinmarketcap
+
+This repository is for the first internship project of Quera Data Science Bootcamp
+Quera Data Science Bootcamp has been held for 12 weeks from August to November 2023. in which we learned and practiced both technical and soft skills in order to become ready to work as data Scientists in the market and industry.
+
+This repository is for the first teamwork internship project of this Bootcamp, which is about data analysis in the field of Cryptocurrency Market and includes extracting data from coinmarketcap.com, storing data in a database and performing statistical analysis, and creating visualization with Power BI Dashboard.
+
+The following members are present in this team, arranged in alphabetical order:
+
+Mr. Abednezhad, Saleh (Team Head)
+Mr. Ghiyasi, Mahdi
+Mr. Moosaei, Amirali
+Mr. Soufi, Mohamadreza
+This team has completed the project under the mentoring of Mr. Jour Ebrahimi, Hossein.
+
 ##  Introduction
 
 Welcome to the documentation for our project that involves scraping data from Coin MarketCap, importing it into a database using SQLAlchemy, performing statistical analysis on the collected data, and finally presenting the results in Power BI. This project aims to provide valuable insights into cryptocurrency market data, enabling us to make informed decisions and gain a deeper understanding of market trends.
@@ -12,13 +27,63 @@ The primary objective of this project is to create a streamlined data pipeline f
 
 3. Statistical Analysis: Explore various statistical techniques and tools to gain insights into the cryptocurrency market, including trends, correlations, and key performance indicators (KPIs).
 
-4. Power BI Integration: Finally, we will show you how to connect your database to Power BI for creating interactive dashboards and visualizations to effectively communicate the insights derived from the data.
+4. Power BI Integration: Finally, we will show you how to connect your database to Power BI to create interactive dashboards and visualizations to effectively communicate the insights derived from the data.
 
-### Data Scraping
+Below is a file structure of this project:
+
+Root.
+    ├── Analysis    # Analysing data with statistics
+    |    ├── est_tests.ipynb
+    |    ├── read_data.ipynb
+    |    └─  statistics.ipynb
+    |   
+    ├── Final_data   # Database tables files
+    |   ├── ERD.jpg
+    |   ├── currency.csv
+    |   ├── github.csv
+    |   ├── historical.csv
+    |   ├── languages.csv
+    |   ├── languages_currency.csv
+    |   ├── scraped_csv_files.zip
+    |   ├── tags.csv
+    |   └── tags_currency.csv
+    |
+    ├── Power BI
+    |   ├── Coinmarketcap.pbix
+    |   ├── Data_Model.PNG
+    |   └── Data_Model_Star.jpg
+    |
+    ├── Scraped_data    # data scraped from website scraping
+    |    ├── all_historical_data.csv
+    |    ├── Coins_data.csv
+    |    ├── Coins_data.json
+    |    ├── Coins_extras.csv
+    |    ├── github_data.csv
+    |    ├── languages_data.csv
+    |    └─  scraped_csv_files.zip
+    |   
+    ├── Scraping      # Source files Scripts for web scraping using tools like Selenium, requests, logging, and etc.
+    |    ├── ScrapingF.ipynb
+    |    ├── github_scrape.ipynb
+    |    ├── merge_historical.ipynb
+    |    ├── scraping_historical_data.py
+    |    ├── scraping_main_page.py
+    |    └─  requirements.txt
+    |
+    ├── Sql_alchemy
+    |    ├── __init__.py
+    |    ├── data_insertion.py
+    |    ├── db.py
+    |    └── requirements.txt
+    |
+    ├── images
+    └── README.md # Explanation of project structure, tools used, and instructions for executing each part of the project.
+
+### Part 1: Data Scraping
 
 In this section, we will walk you through the process of scraping cryptocurrency data from Coin MarketCap using Python and Selenium. We assume that you have already set up the required environment and libraries as mentioned in the introduction.
 
-1. We present a Python script for web scraping the top 200 cryptocurrency data from the Coin MarketCap website for date 2023-05-28. The scraped data includes information about the rank, name, symbol, circulating supply, and historical data link for each cryptocurrency and also extract github link and tags from this page.
+1. We present a Python script for web scraping the top 200 cryptocurrency data from the Coin MarketCap website for the date 2023-05-28. The scraped data includes information about the rank, name, symbol, circulating supply, and historical data link for each cryptocurrency and also extracts github link and tags from this page.
 
 ![Alt text](images/top200.png)
 2. For every currency link, we extract GitHub links and tags
@@ -39,7 +104,7 @@ In this section, we will walk you through the process of scraping cryptocurrency
 ![Alt text](images/historical-365.png)
 
 
-### Database Intgration
+### Part 2: Database Integration
 Introduction
 In this phase of the project, we will focus on leveraging SQLAlchemy, a Python library for SQL databases, to create models and tables that will store the cryptocurrency data we have scraped. Additionally, we will demonstrate how to insert the collected data into these database tables. This process allows us to persistently store and manage the cryptocurrency data for future analysis and reporting.
 
@@ -59,7 +124,7 @@ Data Insertion: We insert data from the scraped CSV files into the corresponding
 
 ![Alt text](images/ERD.png)
 
-### Statistical Analysis
+### Part 3: Statistical Analysis
 
 This document presents a statistical analysis of average volume data for cryptocurrencies. The analysis includes calculating descriptive statistics such as mean and standard deviation, generating random samples, and visualizing the distribution of average volume values using a histogram.
 
@@ -98,10 +163,10 @@ The x-axis limits are set to focus on a specific range of average volume values,
 . 
 Now we provide a statistical analysis of the mean average volume of random samples taken from a dataset of cryptocurrency average volume values. The analysis includes the generation of random samples, calculation of sample means, and visualization of the distribution of these sample means using a histogram.
 ![Alt text](images/image-1.png)
-As we can see, the histogram of the average volume 24h of currencies and the average volume 24h samples taken from curencies **does not have a distribution similar to the normal distribution**, so **we cannot use the z-score method** to find confidence interval.Therefore, we use the **bootstrap method**, which **does not require the normality of the data distribution**.
+As we can see, the histogram of the average volume 24h of currencies and the average volume 24h samples taken from currencies **does not have a distribution similar to the normal distribution**, so **we cannot use the z-score method** to find confidence interval. Therefore, we use the **bootstrap method**, which **does not require the normality of the data distribution**.
 
-. In bootstarp method, we take many samples from the population and keep the average of all samples. After that, we sort all these averages in ascending order, and among these averages, we select the two averages that 98% of the averages are in the interval between these two averages as the lower bound and the upper bound.
-These are the resukt:
+. In the bootstrap method, we take many samples from the population and keep the average of all samples. After that, we sort all these averages in ascending order, and among these averages, we select the two averages where 98% of the averages are in the interval between these two averages as the lower bound and the upper bound.
+These are the results:
 
 Confidence Interval: ( 43370599.979797386 , 1872847876.3255749 )
 
@@ -124,14 +189,14 @@ As we can see, the average of the two populations is almost equal, but their sta
 
 ![Alt text](images/image-2.png) 
 
-These two histogram show that the distribution of the average samples of the two populations is almost normal, so we can use the t-test **assuming that the samples observed in the population are independent from each other**. Also, since the currencies are the same in two populations, we use the **paired t-test**.
+These two histograms show that the distribution of the average samples of the two populations is almost normal, so we can use the t-test **assuming that the samples observed in the population are independent from each other**. Also, since the currencies are the same in two populations, we use the **paired t-test**.
 
 P-value: 0.43121960671174875
 
 The null hypothesis is that the **expected value of the mean of the two samples is equal**, and considering the value of P, we **cannot reject** this hypothesis.
 
-To use the t test, we assumed that the **samples observed in the two populations are independent of each other**, but we know that in reality this assumption is not correct, for example:<br> <ul> <li>sharp increase or decrease in the price of currencies with a high market kap affects the entire market.</li> <li>if a currency has a sharp price change in one day, this price change will be effective in the coming days.</li> </ul>
-so we use **Wilcoxon signed-rank** test that is non-parametric test and it dosen't require data independency.
+To use the t test, we assumed that the **samples observed in the two populations are independent of each other**, but we know that in reality, this assumption is not correct, for example:<br> <ul> <li>sharp increase or decrease in the price of currencies with a high market cap affects the entire market.</li> <li> If a currency has a sharp price change in one day, this price change will be effective in the coming days.</li> </ul>
+so we use **Wilcoxon signed-rank** test which is a non-parametric test and it doesn't require data independency.
 
 P-value: 0.45079243379139866
 
@@ -153,7 +218,7 @@ As we can see, the mean of the two populations has a large distance, but the sta
 
 ![Alt text](images/image-3.png)
 
-These two histogram show that the distribution of the average samples of the two populations is almost normal, so we can use the t-test, **but the variance of the two populations is far from each other**, so we must use the **Welch t-test**, which does not require the variance of the two populations to be equal.
+These two histograms show that the distribution of the average samples of the two populations is almost normal, so we can use the t-test, **but the variance of the two populations is far from each other**, so we must use the **Welch t-test**, which does not require the variance of the two populations to be equal.
 
 P-value: 1.3406892290643562e-227
 
@@ -172,24 +237,24 @@ The mean and standard deviation do not give us information about the distributio
 
 ![Alt text](images/image-4.png)
 
-The histogram of the data has a shape similar to the normal distribution, but it's **peak is very high**, and we need to use hypothesis test to know the data distribution is normal or not.
+The histogram of the data has a shape similar to the normal distribution, but it's **peak is very high**, and we need to use a hypothesis test to know whether the data distribution is normal or not.
 
 P-value Shapiro-Wilk test : 0.0
 
 P-value Jarque-Bera test  : 0.0
 
 The null hypothesis of both these tests is that **the population has a normal distribution**, but since the p-value is **zero**, the **population does not have a normal distribution**.<br>
-The difference between these two tests is that **Jarque-Bera** test focuses on **skewness and kurtosis**, while **Shapiro-Wilk** test focuses on the **correlation between the observed data and the expected values from a normal distribution**, also **Jarque_Bera** test dose not have any limitation on the sample size but maximum size of sample for **Shapiro-Wilk** test is 5000.
+The difference between these two tests is that **Jarque-Bera** test focuses on **skewness and kurtosis**, while **Shapiro-Wilk** test focuses on the **correlation between the observed data and the expected values from a normal distribution**, also **Jarque_Bera** test does not have any limitation on the sample size but maximum size of sample for **Shapiro-Wilk** test is 5000.
 
 <h3>Hypothesis test 4(Additional):</h3>
 
-**Hossein Ebrahimian** claims that the percentage of using newer and older programming languages in cryptocurrency projects is the same. Now, since he doesn't know anything about statistics, we have to prove his claim. For this purpose, we used 4 programming languages that were released in the **21st** century **(Go 2009, Rast 2015, TypeScript 2012, and Solidity 2014)** and 4 programming languages that were released in the **20th** century **(C 1972, CPP 1985, Java Script 1995, and Python 1991)**.we check the average percentage of use of these 2 groups of programming languages in projects (each of these languages have been used in at least 20 projects.)
+**Hossein Ebrahimian** claims that the percentage of using newer and older programming languages in cryptocurrency projects is the same. Now, since he doesn't know anything about statistics, we have to prove his claim. For this purpose, we used 4 programming languages that were released in the **21st** century **(Go 2009, Rast 2015, TypeScript 2012, and Solidity 2014)** and 4 programming languages that were released in the **20th** century **(C 1972, CPP 1985, Java Script 1995, and Python 1991)**. we check the average percentage of use of these 2 groups of programming languages in projects (each of these languages have been used in at least 20 projects.)
 
 mean and std of usage percentage of new top programming languages : 48.48081395348838  -  37.53937984133946
 
 mean and std of usage percentage of old top programming languages : 24.77956989247312  -  29.41003069007837
 
-As we can see, the mean of new langages is greather than old languages, but the standard deviation of the two grops is high.So we cannot draw a definite conclusion from this comparison. Therefore, we use the hypothesis test.
+As we can see, the mean of new languages is greater than old languages, but the standard deviation of the two groups is high. So we cannot draw a definite conclusion from this comparison. Therefore, we use the hypothesis test.
 
 ![Alt text](images/image-5.png)
 
@@ -197,11 +262,11 @@ Histograms show that the distribution of both groups is **not normal**
 
 ![Alt text](images/image-6.png)
 
-These two histogram show that the distribution of the average samples of the two populations is almost normal, so we can use the t-test, **but the variance of the two populations is not equal**, so we must use the **Welch t-test**, which does not require the variance of the two populations to be equal.
+These two histograms show that the distribution of the average samples of the two populations is almost normal, so we can use the t-test, **but the variance of the two populations is not equal**, so we must use the **Welch t-test**, which does not require the variance of the two populations to be equal.
 
 P-value: 2.4413785563638207e-06
 
-The null hypothesis in this test was that **the expected value of the average of the two populations is the same**, but according to the P value, we **can reject** this assumption.Therefore, Hossein's claim was wrong and the average percentage of using new programming languages in cryptocurrency projects is higher.
+The null hypothesis in this test was that **the expected value of the average of the two populations is the same**, but according to the P value, we **can reject** this assumption. Therefore, Hossein's claim was wrong and the average percentage of using new programming languages in cryptocurrency projects is higher.
 
 --------------------------------------------------------------------------------------------------
 #### Question 1 :
@@ -210,11 +275,11 @@ The null hypothesis in this test was that **the expected value of the average of
 
 ![Alt text](images/image-7.png)
 
-#### Devide the data to 4 parts: 
+#### Divide the data to 4 parts: 
 
 ![Alt text](images/image-8.png)
 
-#### Devide the data to 2 parts: 
+#### Divide the data to 2 parts: 
 
 ![Alt text](images/image-9.png)
 
@@ -260,14 +325,14 @@ This analysis offers insights into the price dynamics of cryptocurrencies and id
 
 -----------------------------------------------------------------------------------
 
-#### Qestion 5 :
+#### Question 5 :
 
 #### Top 10 Coins in Red Days
 
 ![Alt text](images/image-16.png)
 
 -----------------------------------------------------------------------------------
-### Power BI:
+### Part 4: Power BI Dashboard
 
 #### Introduction
 In this section we explore the process of integrating a database containing cryptocurrency data into Power BI, designing a star schema for data modeling, and creating analytical reports and visualizations to gain insights into the cryptocurrency market.
