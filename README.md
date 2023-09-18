@@ -333,7 +333,7 @@ This analysis offers insights into the price dynamics of cryptocurrencies and id
 
 #### Top 10 Coins in Red Days
 
-![Alt text](images/image-16.png)
+![Alt text](images/top10-coins-red-days.png)
 
 -----------------------------------------------------------------------------------
 ### Part 4: Power BI Dashboard
