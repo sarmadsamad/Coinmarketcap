@@ -13,7 +13,7 @@ The following members are present in this team, arranged in alphabetical order:
 * [Mr. Moosaei, Amirali](https://github.com/mo0o0o0os)
 * [Mr. Soufi, Mohamadreza](https://github.com/SufiM)
 
-This team has completed the project under the mentoring of **Mr. Jour Ebrahimian, Hossein**.
+This team has completed the project under the mentoring of [**Mr. Jour Ebrahimian, Hossein**](https://github.com/H055EIN).
 
 ##  Introduction
 
